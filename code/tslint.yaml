@@ -1,0 +1,75 @@
+---
+extends:
+  - tslint:latest
+  - tslint-sonarts
+rules:
+  align: false
+  ban:
+    - true
+    - - fit
+    - - fdescribe
+    - - xit
+    - - xdescribe
+    - name: Object.assign
+      message: Use the spread operator instead.
+  class-name: true
+  arrow-parens: false
+  comment-format:
+    - true
+    - check-space
+  indent:
+    - true
+    - spaces
+  interface-name: false
+  jsdoc-format: true
+  mccabe-complexity: true
+  member-ordering: false
+  no-commented-code: false
+  no-duplicate-string: false
+  no-empty-nested-blocks: true
+  no-implicit-dependencies:
+    - true
+    - dev
+  no-inconsistent-return: true
+  no-internal-module: true
+  no-nested-incdec: true
+  no-null-keyword: true
+  no-trailing-whitespace: true
+  no-submodule-imports: false
+  no-var-keyword: true
+  object-literal-sort-keys: false
+  one-line:
+    - true
+    - check-open-brace
+    - check-whitespace
+  prefer-const: true
+  prefer-immediate-return: false
+  quotemark:
+    - true
+    - single
+    - avoid-escape
+  semicolon:
+    - true
+    - always
+    - ignore-bound-class-methods
+  typedef-whitespace:
+    - true
+    - call-signature: nospace
+      index-signature: nospace
+      parameter: nospace
+      property-declaration: nospace
+      variable-declaration: nospace
+    - call-signature: onespace
+      index-signature: onespace
+      parameter: onespace
+      property-declaration: onespace
+      variable-declaration: onespace
+  whitespace:
+    - true
+    - check-branch
+    - check-decl
+    - check-operator
+    - check-module
+    - check-separator
+    - check-type
+

@@ -1,0 +1,11 @@
+{
+  "watch": [
+    "scripts",
+    "graphql"
+  ],
+  "ext": "ts",
+  "ignore": [
+    "*.spec.ts"
+  ],
+  "exec": "ts-node ./scripts/server.ts"
+}
