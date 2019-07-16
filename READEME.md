@@ -1,6 +1,18 @@
-# Queries
+# tweets-graphql-example
 
-## Simple query
+## Run
+
+```bash
+make init
+```
+
+```bash
+make run
+```
+
+## Queries
+
+### Simple query
 
 ```graphql
 {
@@ -36,10 +48,10 @@ fragment likes on Post {
 }
 ```
 
-## Mutation
+### Mutation
 
 ```graphql
-mutation Foo {
+mutation {
   createPost(author: 1, content: "The new content") {
     id
     content
