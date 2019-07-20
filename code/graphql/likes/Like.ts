@@ -1,12 +1,12 @@
 import { Field, ID, Int, ObjectType } from 'type-graphql';
+import { Post } from '../posts/Post';
+import { User } from '../user/User';
 
 @ObjectType()
 export class Like {
 
-  @Field((type) => ID)
   public postId: number;
 
-  @Field((type) => ID)
   public userId: number;
 
   @Field((type) => Int)

@@ -2,6 +2,7 @@ import { GraphQLResolveInfo } from 'graphql';
 import { Context } from 'graphql-yoga/dist/types';
 import { getLogger, Logger } from 'log4js';
 import { Arg, Args, Ctx, FieldResolver, Info, Query, Resolver, Root } from 'type-graphql';
+import { Service } from 'typedi';
 import { Post } from '../posts/Post';
 import { PostSearchParams } from '../posts/PostSearchParams';
 import { PostService } from '../posts/PostService';
@@ -9,12 +10,14 @@ import { User } from './User';
 import { UserSearchParams } from './UserSearchParams';
 import { UserService } from './UserService';
 
+@Service()
 @Resolver((of) => User)
 export class UserResolver {
 
-  constructor(private userService: UserService = new UserService(),
-      private postService: PostService = new PostService(),
-      private logger: Logger = getLogger()) {
+  private logger: Logger = getLogger();
+
+  constructor(private userService: UserService,
+      private postService: PostService) {
   }
 
   @Query((returns) => [User])

@@ -11,6 +11,7 @@
   "author": "Ben Keil",
   "license": "MIT",
   "dependencies": {
+    "apollo-server": "^2.7.0",
     "aws-lambda": "^0.1.2",
     "builder-pattern": "^1.2.1",
     "cheerio": "^1.0.0-rc.3",
@@ -18,7 +19,6 @@
     "express-graphql": "^0.8.0",
     "graphql": "^14.4.2",
     "graphql-fields-list": "^2.1.2",
-    "graphql-yoga": "^1.18.0",
     "highland": "^2.13.4",
     "html-entities": "^1.2.1",
     "html-to-text": "^5.1.1",
@@ -27,7 +27,8 @@
     "reflect-metadata": "^0.1.13",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "tsyringe": "^3.3.0"
+    "typedi": "^0.8.0",
+    "uuid": "^3.3.2"
   },
   "peerDependencies": {
     "aws-sdk": "^2.479.0"
@@ -50,6 +51,7 @@
     "@types/request": "^2.48.1",
     "@types/request-promise": "^4.1.44",
     "@types/stream-buffers": "^3.0.3",
+    "@types/uuid": "^3.4.5",
     "archiver": "^3.0.0",
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",

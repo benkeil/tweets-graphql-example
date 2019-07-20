@@ -4,7 +4,7 @@ import { ArgsType, Field, ID, InputType } from 'type-graphql';
 export class CreatePost {
 
   @Field((type) => ID)
-  public author: number;
+  public authorId: number;
 
   @Field((type) => String)
   public content: string;

@@ -1,14 +1,18 @@
 import { Builder } from 'builder-pattern';
 import { getLogger, Logger } from 'log4js';
+import { Service } from 'typedi';
 import { filter } from '../utils/filter';
 import { Like } from './Like';
 import { LikeSearchParams } from './LikeSearchParams';
 
+@Service()
 export class LikeService {
+
+  private logger: Logger = getLogger();
 
   private likes: Like[] = [];
 
-  constructor(private logger: Logger = getLogger()) {
+  constructor() {
     this.likes.push(Builder(Like)
         .userId(1)
         .postId(1)

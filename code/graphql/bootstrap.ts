@@ -1,5 +1,5 @@
-import { LoggingEvent } from 'log4js';
 import * as log4js from 'log4js';
+import { Container } from 'typedi';
 
 export function bootstrap() {
   mock();

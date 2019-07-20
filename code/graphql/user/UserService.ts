@@ -1,33 +1,37 @@
 import { Builder } from 'builder-pattern';
 import { getLogger, Logger } from 'log4js';
+import { Service } from 'typedi';
 import { filter } from '../utils/filter';
 import { User } from './User';
 import { UserSearchParams } from './UserSearchParams';
 
+@Service()
 export class UserService {
+
+  private logger: Logger = getLogger();
 
   private users: User[] = [];
 
-  constructor(private logger: Logger = getLogger()) {
+  constructor() {
     this.users.push(Builder(User)
         .id(1)
         .email('ben@google.de')
         .firstName('Ben')
-        .lastName('Keil')
+        .lastName('Foo')
         .twitter('benben')
         .build());
     this.users.push(Builder(User)
         .id(2)
         .email('niko@google.de')
         .firstName('Niko')
-        .lastName('Arras')
+        .lastName('Bar')
         .twitter('niknik')
         .build());
     this.users.push(Builder(User)
         .id(3)
         .email('sarah@google.de')
         .firstName('Sarah')
-        .lastName('Tzzz')
+        .lastName('Baz')
         .twitter('sarsar')
         .build());
   }
