@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from 'type-graphql';
-import { Post } from '../posts/Post';
+import { Post } from '../post/Post';
 
 @ObjectType()
 export class User {

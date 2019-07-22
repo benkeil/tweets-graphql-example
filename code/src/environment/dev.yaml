@@ -1,0 +1,4 @@
+application:
+  properties:
+    starwarsApi:
+      url: https://swapi.co/api

@@ -1,5 +1,5 @@
 import { ArgsType, Field, ID, ObjectType } from 'type-graphql';
-import { Like } from '../likes/Like';
+import { Like } from '../like/Like';
 
 @ObjectType()
 export class Post {
@@ -7,12 +7,10 @@ export class Post {
   @Field((type) => ID)
   public id: number;
 
-  @Field((type) => ID)
   public authorId: number;
 
   @Field((type) => String)
   public content: string;
 
-  @Field((type) => [Like])
   public likes: Like[];
 }

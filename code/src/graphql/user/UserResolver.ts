@@ -1,11 +1,10 @@
 import { GraphQLResolveInfo } from 'graphql';
-import { Context } from 'graphql-yoga/dist/types';
 import { getLogger, Logger } from 'log4js';
 import { Arg, Args, Ctx, FieldResolver, Info, Query, Resolver, Root } from 'type-graphql';
 import { Service } from 'typedi';
-import { Post } from '../posts/Post';
-import { PostSearchParams } from '../posts/PostSearchParams';
-import { PostService } from '../posts/PostService';
+import { Post } from '../post/Post';
+import { PostSearchParams } from '../post/PostSearchParams';
+import { PostService } from '../post/PostService';
 import { User } from './User';
 import { UserSearchParams } from './UserSearchParams';
 import { UserService } from './UserService';
@@ -18,6 +17,7 @@ export class UserResolver {
 
   constructor(private userService: UserService,
       private postService: PostService) {
+    this.logger.debug(`#### Created ${ this.constructor.name } ####`);
   }
 
   @Query((returns) => [User])
@@ -27,7 +27,7 @@ export class UserResolver {
   }
 
   @Query((returns) => User)
-  public async user(@Arg('id') id: number, @Info() info: GraphQLResolveInfo, @Ctx() context: Context): Promise<User> {
+  public async user(@Arg('id') id: number, @Info() info: GraphQLResolveInfo, @Ctx() context: any): Promise<User> {
     this.logger.info(`Call => id: ${ id }`);
     return this.userService.getUser(id);
   }
@@ -35,6 +35,6 @@ export class UserResolver {
   @FieldResolver((returns) => [Post])
   public async posts(@Root() user: User): Promise<Post[]> {
     this.logger.info(`Call => user: ${ JSON.stringify(user) }`);
-    return this.postService.getPosts({ author: user.id });
+    return this.postService.getPosts({ authorId: user.id });
   }
 }

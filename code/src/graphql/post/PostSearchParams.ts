@@ -9,5 +9,5 @@ export class PostSearchParams {
   public id?: number;
 
   @Field((type) => Int, { nullable: true })
-  public author?: number;
+  public authorId?: number;
 }

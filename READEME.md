@@ -1,4 +1,4 @@
-# tweets-graphql-example
+# tweets-src.graphql-example
 
 ## Run
 
@@ -14,7 +14,7 @@ make run
 
 ### Simple query
 
-```graphql
+```src.graphql
 {
   users {
     firstName
@@ -50,7 +50,7 @@ fragment likes on Post {
 
 ### Mutation
 
-```graphql
+```src.graphql
 mutation {
   createPost(author: 1, content: "The new content") {
     id

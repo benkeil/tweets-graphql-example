@@ -1,15 +1,13 @@
-import { GraphQLResolveInfo } from 'graphql';
-import { Context } from 'graphql-yoga/dist/types';
 import { getLogger, Logger } from 'log4js';
 import { Arg, Args, Ctx, FieldResolver, Info, Mutation, Query, Resolver, Root } from 'type-graphql';
 import { Service } from 'typedi';
-import { Like } from '../likes/Like';
-import { LikeSearchParams } from '../likes/LikeSearchParams';
-import { LikeService } from '../likes/LikeService';
-import { Post } from '../posts/Post';
-import { PostService } from '../posts/PostService';
+import { Post } from '../post/Post';
+import { PostService } from '../post/PostService';
 import { User } from '../user/User';
 import { UserService } from '../user/UserService';
+import { Like } from './Like';
+import { LikeSearchParams } from './LikeSearchParams';
+import { LikeService } from './LikeService';
 
 @Service()
 @Resolver((of) => Like)
@@ -20,6 +18,7 @@ export class LikeResolver {
   constructor(private postService: PostService,
       private likeService: LikeService,
       private userService: UserService) {
+    this.logger.debug(`#### Created ${ this.constructor.name } ####`);
   }
 
   @Query((returns) => [Like])

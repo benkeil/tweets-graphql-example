@@ -49,10 +49,11 @@ export class PostService {
   public addPost(createPost: CreatePost): Post {
     const post = Builder(Post)
         .id(this.posts.length)
-        .authorId(createPost.authorId)
         .content(createPost.content)
+        .authorId(+createPost.authorId)
         .build();
     this.posts.push(post);
+    this.logger.info(`Got now ${ this.posts.length } posts`);
     return post;
   }
 }
