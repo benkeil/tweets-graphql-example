@@ -15,7 +15,7 @@
     "apollo-server": "^2.7.0",
     "apollo-server-env": "^2.4.0",
     "apollo-server-types": "^0.2.0",
-    "aws-lambda": "^0.1.2",
+    "aws-lambda": "^1.0.5",
     "builder-pattern": "^1.2.1",
     "cheerio": "^1.0.0-rc.3",
     "class-validator": "^0.9.1",
